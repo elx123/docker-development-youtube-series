@@ -33,3 +33,11 @@ videos-web:
 		--build-arg http_proxy=$(PROXY) \
 		--build-arg https_proxy=$(PROXY) \
 		.
+
+aliyuncs-upload:
+	docker tag playlists-api:$(VERSION) registry.cn-shanghai.aliyuncs.com/testcjj/playlists-api:$(VERSION)
+	docker tag videos-api:$(VERSION) registry.cn-shanghai.aliyuncs.com/testcjj/videos-api:$(VERSION)
+	docker tag videos-web:$(VERSION) registry.cn-shanghai.aliyuncs.com/testcjj/videos-web:$(VERSION)
+	docker push registry.cn-shanghai.aliyuncs.com/testcjj/playlists-api:$(VERSION)
+	docker push registry.cn-shanghai.aliyuncs.com/testcjj/videos-api:$(VERSION)
+	docker push registry.cn-shanghai.aliyuncs.com/testcjj/videos-web:$(VERSION)
