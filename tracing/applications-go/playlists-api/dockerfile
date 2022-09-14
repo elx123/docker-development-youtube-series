@@ -1,14 +1,15 @@
 FROM golang:1.15-alpine as build
 RUN apk add --no-cache git
 
-
+WORKDIR /src
 ENV GOPROXY=https://goproxy.io
 
-COPY applications-go /src
-
-WORKDIR /src/applications-go/playlists-api/
-
+COPY applications-go/playlists-api/go.sum /src/
+COPY applications-go/playlists-api/go.mod /src/
 RUN go mod download
+
+COPY applications-go/playlists-api/app.go /src
+
 RUN go build -o app
 
 FROM alpine:3.12
