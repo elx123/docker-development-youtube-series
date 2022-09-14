@@ -5,11 +5,10 @@ RUN apk add --no-cache git
 ENV GOPROXY=https://goproxy.io
 
 COPY applications-go /src
-RUN go mod download
-
-COPY app.go /src
 
 WORKDIR /src/applications-go/playlists-api/
+
+RUN go mod download
 RUN go build -o app
 
 FROM alpine:3.12
