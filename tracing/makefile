@@ -1,6 +1,6 @@
 SHELL := /usr/bin/zsh
 VERSION := 1.0
-all:
+all: playlists-api videos-api videos-api-netcore videos-web
 playlists-api:
 	docker build \
 		-f playlists-api \
