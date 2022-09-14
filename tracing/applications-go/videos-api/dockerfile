@@ -4,11 +4,11 @@ RUN apk add --no-cache git
 WORKDIR /src 
 ENV GOPROXY=https://goproxy.io
 
-COPY go.sum /src/
-COPY go.mod /src/
+COPY applications-go/videos-api/go.sum /src/
+COPY applications-go/videos-api/go.mod /src/
 RUN go mod download
 
-COPY app.go /src
+COPY applications-go/videos-api/app.go /src
 
 RUN go build -o app
 
