@@ -1,3 +1,4 @@
+SHELL := /usr/bin/zsh
 VERSION := 1.0
 all:
 playlists-api:
